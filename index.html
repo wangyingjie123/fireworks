@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <title>烟花易冷</title>
+		<link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <style type="text/css">
+      html, body {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+      }
+			.music {
+				position: absolute;
+				right: 20px;
+				top: 30px;
+				width: 50px;
+				height: 50px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				border: 2px solid #fff;
+				border-radius: 50%;
+				cursor: pointer;
+			}
+			.play {
+				animation: rotated 6s linear infinite;
+			}
+			.music-icon {
+				width: 25px;
+				height: 25px;
+				background: url('./audio/music.png')no-repeat;
+				background-size: 100% 100%;
+			}
+			@keyframes rotated {
+		    0%{
+					transform: rotate(0deg);
+				}
+		 		50%{
+					transform: rotate(-180deg);
+				}
+				100%{
+					transform: rotate(-360deg);
+				}
+	 		}
+    </style>
+  </head>
+  <body>
+    <audio src="./audio/xiaoxingyun.mp3" loop id="music"></audio>
+		<div class="music">
+			<i class="music-icon"></i>
+		</div>
+    <script type="text/javascript" src="./js/firework-2.js"></script>
+		<script>
+			const btn = document.querySelector('.music');
+			const music = document.querySelector('#music');
+			btn.onclick = () => {
+				music.play().then(() => {
+					btn.classList.add('play');
+				});
+			}
+		</script>
+  </body>
+</html>
